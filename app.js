@@ -17,9 +17,7 @@ function prayerTimes(latitude, longitude){
             name.innerHTML = i;
             time.innerHTML = data[i];
             tableTbody.appendChild(row);
-            
         }
-
         
         table.appendChild(tableTbody);
         app.appendChild(table);
