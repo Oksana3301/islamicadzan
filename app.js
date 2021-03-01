@@ -1,5 +1,5 @@
 function prayerTimes(latitude, longitude){
-    fetch('http://api.aladhan.com/v1/calendar?latitude='+latitude+'&longitude='+longitude+'&method=2')
+    fetch('http://api.aladhan.com/v1/calendar?latitude='+latitude+'&longitude='+longitude+'&method=4')
     .then(response => response.json())
     .then(function(response){
         let date = new Date();
@@ -17,9 +17,10 @@ function prayerTimes(latitude, longitude){
             name.innerHTML = i;
             time.innerHTML = data[i];
             tableTbody.appendChild(row);
-           
+            
         }
 
+        
         table.appendChild(tableTbody);
         app.appendChild(table);
         // console.log(response.data[today]);
@@ -30,8 +31,9 @@ function success(position){
     prayerTimes(position.coords.latitude, position.coords.longitude);
 }
 
+// set default ketika user tidak allow untuk akses lokasi gunakan : "Paris"
 function error(){
-    alert('Maaf anda posisi tidak dapat kami lacak');
+    prayerTimes('48.8566','2.3522');
 }
 
 function userLocation() {
